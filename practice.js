@@ -215,3 +215,20 @@ function spinWords(string){
 console.log(spinWords("Hey fellow warriors"))
 
 //outcome : "Hey wollef sroirraw"
+
+
+
+// 
+function solution(str, ending){
+  
+  
+  // count the length of string
+  let endCount = ending.length - 1
+  let stringCut = str.split("").slice(endCount).join("");
+  //put the string in an array, slice the array then out back into a string
+  
+  return stringCut  === ending
+}
+
+console.log(solution('abcde', 'cde')); //return true 
+console.log(solution('abcde', 'abc')); // return false
