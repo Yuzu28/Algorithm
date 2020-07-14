@@ -218,17 +218,137 @@ console.log(spinWords("Hey fellow warriors"))
 
 
 
-// 
 function solution(str, ending){
   
   
   // count the length of string
-  let endCount = ending.length - 1
-  let stringCut = str.split("").slice(endCount).join("");
+  let endCount = ending.length 
+//   let stringCut = str.split("").slice(endCount).join("");
+    let stringCut = str.split("").reverse().slice(0, endCount).join("");
+
   //put the string in an array, slice the array then out back into a string
   
-  return stringCut  === ending
+  return stringCut.split("").reverse().join("") === ending
+  
 }
 
-console.log(solution('abcde', 'cde')); //return true 
-console.log(solution('abcde', 'abc')); // return false
+console.log(solution('abcde', 'cde')); //t
+console.log(solution('abcde', 'abc')); //f
+console.log(solution('samurai', 'ai')); //t
+
+
+
+
+
+
+function findNextSquare(sq) {
+  
+  let num = Math.sqrt(sq)
+  
+    if (num % 1 === 0){
+      return (num + 1)**2
+    }
+    //not a square root
+    else return -1
+
+}
+
+console.log(findNextSquare(121));
+console.log(findNextSquare(107));
+
+
+
+// *************************************************************************************
+
+// *************************************************************************************
+
+function toWeirdCase(string){
+  let nedw = string;
+  let station = []
+  for (var i = 0; i <= nedw.length; i++ ){
+    if (i%2 === 0){
+      station.push(nedw[i].toUpperCase());
+    }
+    else {
+      station.push(nedw[i]);
+    }
+    
+    
+  }
+  return station.join("")
+}
+
+console.log(toWeirdCase("however")) //"HoWeVeR"
+
+
+// *************************************************************************************
+
+// *************************************************************************************
+
+function scramble(str1, str2) {
+  var array1 = str1.split("").sort();
+  var array2 = str2.split("").sort();
+  var i = 0;
+  for(var x = 0; i<array2.length && x<=array1.length; x++) {
+      if(array2[i] === array1[x]) {
+          i++;
+      }
+  }
+  return (x <= array1.length);
+}
+
+Test.assertEquals(scramble('rkqodlw','world'),true);
+  Test.assertEquals(scramble('cedewaraaossoqqyt','codewars'),true);
+  Test.assertEquals(scramble('katas','steak'),false);
+
+
+// *************************************************************************************
+
+// *************************************************************************************
+  function order(words){
+  
+    return words.split(' ').sort(function(a,b){
+      return a.match(/\d/) - b.match(/\d/);
+    }).join(' ');
+  }
+
+  Test.assertEquals(order("is2 Thi1s T4est 3a"), "Thi1s is2 3a T4est")
+Test.assertEquals(order("4of Fo1r pe6ople g3ood th5e the2"), "Fo1r the2 g3ood 4of th5e pe6ople")
+
+  // regex \d sort number 0–9.
+
+// *************************************************************************************
+
+// *************************************************************************************
+
+var moveZeros = function (arr) {
+  var orginal = [];
+  var zeros = [];
+  for (let i=0; i <= arr.length; i++){
+    if (arr[i] === 0){
+      zeros.push(arr[i]);
+    }
+    else {
+      orginal.push(arr[i])
+    }
+  }
+  return orginal.slice(0, -1).concat(zeros);
+  //slice is use to delete the last element in array since it come out undefined
+}
+
+
+// *************************************************************************************
+
+// *************************************************************************************
+//making phone numbers 
+function createPhoneNumber(numbers){
+  var one = numbers.splice(0,3).join("")
+  var two = numbers.splice(0,3).join("")
+  var three = numbers.join("")
+ 
+  
+  return `(${one}) ${two}-${three}`
+  
+}
+
+// createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]), "(123) 456-7890")
