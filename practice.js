@@ -352,3 +352,31 @@ function createPhoneNumber(numbers){
 }
 
 // createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]), "(123) 456-7890")
+
+// *************************************************************************************
+
+// *************************************************************************************
+
+function domainName(url){
+  var start = url.replace("http://", "");
+  var end = start.replace("www.", "");
+  var final = end.replace("https://","" ).split(".");
+  return final[0]
+}
+
+
+
+// *************************************************************************************
+
+// *************************************************************************************
+
+
+function anagrams(word, words) {
+  return words.filter(function(item){
+    return item.split('').sort().join('') === word.split('').sort().join('');
+  });
+}
+
+console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada'])) //["aabb", "bbaa"];
+
+console.log(anagrams('laser', ['lazing', 'lazy',  'lacer']));//null
