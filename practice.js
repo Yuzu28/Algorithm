@@ -380,3 +380,18 @@ function anagrams(word, words) {
 console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada'])) //["aabb", "bbaa"];
 
 console.log(anagrams('laser', ['lazing', 'lazy',  'lacer']));//null
+
+
+
+
+// *************************************************************************************
+
+// *************************************************************************************
+
+const palindrome = str => {
+  // turn the string to lowercase
+  str = str.toLowerCase()
+  // reverse input string and return the result of the
+  // comparisong
+  return str === str.split('').reverse().join('')
+}
