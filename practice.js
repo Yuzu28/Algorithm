@@ -395,3 +395,34 @@ const palindrome = str => {
   // comparisong
   return str === str.split('').reverse().join('')
 }
+
+
+
+// *************************************************************************************
+
+// *************************************************************************************
+
+
+function generateHashtag (str) {
+  
+  var splitStr = str.toLowerCase().split(' ');
+
+  for (var i = 0; i < splitStr.length; i++) {
+      
+    //captilize first letter in a each word in a string
+      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+  }
+  // Directly return the joined string
+  var n = splitStr.join(' ').replace(/\s/g, ''); 
+    
+   if ((n.length > 0) && (n.length < 140)){
+     return `#${n}`
+   }
+  
+   else {
+   return false
+ }
+
+}
+ 
+console.log(generateHashtag("sharkTales is awesome "))
