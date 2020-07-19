@@ -426,3 +426,33 @@ function generateHashtag (str) {
 }
  
 console.log(generateHashtag("sharkTales is awesome "))
+
+
+// *************************************************************************************
+
+// *************************************************************************************
+
+
+
+function incrementString (strng) {
+
+  var number = [];
+  
+  var array = strng.split(/([0-9]+)/).filter(Boolean).splice(0,1)
+  var second = strng.split(/([0-9]+)/).filter(Boolean).splice(1,1)
+  
+  if (second === undefined || second.length == 0) {
+    number.push("1");
+  }
+  else {
+    var n = parseInt(second)+ 1
+    number.push(`${n}`)
+  }
+  
+
+  return array.concat(number).join("");
+}
+
+
+console.log(incrementString("foo")); //foo1
+console.log(incrementString("foobar0099")) //foobar100;
