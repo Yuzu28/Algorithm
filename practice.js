@@ -99,9 +99,10 @@ var arr = ['harry', 3, 'tom', 5, 'toma'];
 
 
 function like(arrr){
-  var sol = arrr.toString()
-  var vol = sol.replace(/\d+/g,"").split(" ")
-  return sol;
+  var sol = arrr.toString();
+  var comm = sol.replace(/,/g, "");
+  var vol = comm.replace(/\d+/g," ").split(" ")
+  return vol;
 }
 
 console.log(like(arr));
@@ -456,3 +457,124 @@ function incrementString (strng) {
 
 console.log(incrementString("foo")); //foo1
 console.log(incrementString("foobar0099")) //foobar100;
+
+
+
+// two sums
+
+var twoSum = function(nums, target) {
+  for(let i = 0; i < nums.length; i++){
+      for(let j = i+1; j < nums.length; j++){
+          if(nums[i] + nums[j] == target){
+              return [i, j]
+          }
+      }
+  }
+};
+
+console.log(twoSum([15, 7, 11, 2],9))
+console.log(twoSum([3, 2, 4],6))
+
+
+
+
+// adding arrzy in reverse order
+function addTwoNumbers(l1, l2) {
+  let one = parseInt(l1.reverse().join(""));
+  let two = parseInt(l2.reverse().join(""));
+
+  return  one + two
+  
+}
+
+console.log(addTwoNumbers([2,4,3], [5,6,4]))
+
+
+
+
+
+
+///median of two array
+
+var arr1 = [1, 2, 3];
+
+var arr2= [4,2,3]
+
+function med(nums1, nums2){
+  
+  var al = nums1.concat(nums2).sort()
+  
+    var half = Math.floor(al.length / 2);
+
+  if (al.length % 2)
+    return al[half];
+
+  return (al[half - 1] + al[half]) / 2.0;
+}
+  
+
+
+
+console.log(med(arr1, arr2));
+
+
+///Reverse word on separate lines
+var inputs = ["Hello World", "Bye World", "Useless World"];
+
+function test(arr){
+  
+  holder = []
+  for (var i = 0; i < arr.length; i++){
+    holder.push(arr[i].split(" ").reverse().join(" "))
+  }
+  return holder.join('\r\n');
+  
+}
+
+console.log(test(inputs));
+
+
+//print a word repeately n times
+function test(arr, n){
+  var text = [];
+  for (var i = 0; i < n; i++){
+    text.push("hello");
+   
+    }
+    
+    return text.join('\r\n')
+  }
+  
+
+
+
+///duplicate counts
+
+function dupCounts(arr) {
+  var counts = {};
+  const l = arr.length/2;
+
+  arr.forEach(function(n) {
+   // if property counts[n] doesn't exist, create it
+    counts[n] = counts[n] || 0;
+    // now increment it
+    counts[n]++;
+  });
+  
+  // iterate counts object and remove any that aren't dups
+  for (var key in counts) {
+    if (counts[key] < 2) {
+      delete counts[key];
+    }
+  }
+
+  //return object value from an array
+//   return Object.values(counts)[0]
+  if (Object.values(counts)[0] > l){
+    return Object.values(counts)[0]
+  }
+  else return -1
+}
+
+console.log(dupCounts([3, 3, 4, 2, 4, 4, 2, 4, 4]));
+console.log(dupCounts([1,2,3]));
